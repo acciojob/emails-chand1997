@@ -39,7 +39,10 @@ public class Gmail extends Email {
 
             String m=it.next().getMessage();
 
-            if(m.equals(message)) it.remove();
+            if(m.equals(message)) {
+                trash.add(it.next());
+                it.remove();
+            }
         }
 
     }
