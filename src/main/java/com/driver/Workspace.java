@@ -5,6 +5,7 @@ import org.apache.commons.lang3.tuple.Pair;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashSet;
 
 public class Workspace extends Gmail{
@@ -33,8 +34,14 @@ public class Workspace extends Gmail{
         int max=0;
         for(Meeting m:calendar){
             int maxi=1;
+
+            LocalTime end=m.getEndTime();
+
             for(Meeting mm:calendar){
-                if(mm.getStartTime().compareTo(m.getEndTime())>0) maxi++;
+                if(mm.getStartTime().compareTo(end)>0){
+                    maxi++;
+                    end=mm.getEndTime();
+                }
             }
             max=Math.max(max,maxi);
         }
