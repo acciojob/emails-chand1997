@@ -12,6 +12,7 @@ public class Gmail extends Email {
     //Trash: Stores mails. Each mail has date (Date), sender (String), message (String)
      private List<Mail> inbox;
      private List<Mail> trash;
+
     public Gmail(String emailId, int inboxCapacity) {
       super(emailId);
       this.inboxCapacity=inboxCapacity;
@@ -53,7 +54,7 @@ public class Gmail extends Email {
         // If the inbox is empty, return null
         // Else, return the message of the latest mail present in the inbox
         if(inbox.size()==0) return null;
-        else return inbox.get(inbox.size()-1).getMessage();
+         return inbox.get(inbox.size()-1).getMessage();
 
     }
 
@@ -61,7 +62,7 @@ public class Gmail extends Email {
         // If the inbox is empty, return null
         // Else, return the message of the oldest mail present in the inbox
         if(inbox.size()==0) return null;
-        else return inbox.get(0).getMessage();
+         return inbox.get(0).getMessage();
 
     }
 
@@ -70,7 +71,7 @@ public class Gmail extends Email {
         //It is guaranteed that start date <= end date
         int mailCount=0;
         for(Mail m:inbox){
-            if(m.getD().compareTo(start)>0 && m.getD().compareTo(end)<0) mailCount++;
+            if(m.getD().compareTo(start)>=0 && m.getD().compareTo(end)<=0) mailCount++;
         }
         return mailCount;
 
