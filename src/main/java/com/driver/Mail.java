@@ -17,5 +17,17 @@ public class Mail {
         this.message = message;
     }
 
+    public Date getD() {
+        return d;
+    }
+
+    public String getSender() {
+        return sender;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
 
 }
