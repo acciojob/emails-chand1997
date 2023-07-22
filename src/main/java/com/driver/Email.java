@@ -35,8 +35,8 @@ public class Email {
             int specChar=0;
             for(char ch:newPassword.toCharArray()){
                 if(ch>='a' && ch<='z') lower++;
-                if(ch>='0' && ch<='9') digit++;
-                if(ch>='A' && ch<='Z') upper++;
+                else if(ch>='0' && ch<='9') digit++;
+                else if(ch>='A' && ch<='Z') upper++;
                 else specChar++;
             }
             if(upper>=1 && lower>=1 && digit>=1 && specChar>=1){

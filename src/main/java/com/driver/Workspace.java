@@ -38,6 +38,7 @@ public class Workspace extends Gmail{
             LocalTime end=m.getEndTime();
 
             for(Meeting mm:calendar){
+
                 if(mm.getStartTime().compareTo(end)>0){
                     maxi++;
                     end=mm.getEndTime();
@@ -46,6 +47,7 @@ public class Workspace extends Gmail{
             max=Math.max(max,maxi);
         }
         return max;
+
 
     }
 }
